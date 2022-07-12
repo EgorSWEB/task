@@ -8,9 +8,16 @@ class Farm
     
     public function addAnimal($animal)
     {
-        $this->lastId++;
-        $animal->setId($this->lastId);
-        $this->allAnimals[$animal->getTypeAnimal()] []= $animal;
+        if($animal instanceof Animal)
+        {
+            $this->lastId++;
+            $animal->setId($this->lastId);
+            $this->allAnimals[$animal->getTypeAnimal()] []= $animal;
+        }
+        else
+        {
+            echo '<b>Неверный тип аргумента</b>'.PHP_EOL;
+        }
     }
 
     public function addProducts()
